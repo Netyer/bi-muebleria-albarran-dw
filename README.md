@@ -9,8 +9,8 @@ Empresa del rubro de la mueblería que ha crecido rápidamente y requiere incorp
 | --- | --- |
 | [Cristóbal Carvacho] | [@CristobalCarvacho115] |
 | [Tania Contreras] | [@Netyer] |
-| [Lisbeth Herrera] | [@Chumlee197] |
-| [Ignacio Parada] | [@Lisherrera] |
+| [Lisbeth Herrera] | [@Lisherrera] |
+| [Ignacio Parada] | [@Chumlee197] |
 
 - **Asignatura:** Inteligencia de Negocios
 - **Sección:** 300
