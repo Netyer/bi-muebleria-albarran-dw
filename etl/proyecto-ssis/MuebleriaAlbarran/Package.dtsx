@@ -1,0 +1,1870 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/10/2026 9:41:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LISHERRERA"
+  DTS:CreatorName="LISHERRERA\lisal"
+  DTS:DTSID="{1905F725-EF89-40D7-80E8-639F4F63F9CC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="13322"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{C38C370F-CF6A-4736-B482-AF1AC867754F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3F638214-A31F-4C84-9C44-5A542C33F84C}"
+      DTS:ObjectName="LocalHost">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{018AD450-9FD3-4065-84B8-0A47594F393C}"
+      DTS:ObjectName="LocalHost 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C66DAA92-BFFD-4B63-A36A-3B45BA2D14AF}"
+      DTS:ObjectName="LocalHost.Albarran_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Albarran_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{C66DAA92-BFFD-4B63-A36A-3B45BA2D14AF}LocalHost.Albarran_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Albarran_DW 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BF4C20E7-86AF-4BE2-96CD-C62F36880B39}"
+      DTS:ObjectName="LocalHost.Albarran_DW 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Albarran_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{BF4C20E7-86AF-4BE2-96CD-C62F36880B39}LocalHost.Albarran_DW 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Albarran_DW 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E71B738E-61D8-4F1C-A60B-489C9C699C1F}"
+      DTS:ObjectName="LocalHost.Albarran_DW 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Albarran_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{E71B738E-61D8-4F1C-A60B-489C9C699C1F}LocalHost.Albarran_DW 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Albarran_DW 3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BE2FF70E-6294-46FC-BA9C-A5A22710B2AB}"
+      DTS:ObjectName="LocalHost.Albarran_DW 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Albarran_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{BE2FF70E-6294-46FC-BA9C-A5A22710B2AB}LocalHost.Albarran_DW 3;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Albarran_DW 4]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B00AD031-6513-4F65-8D9B-62B80C69A101}"
+      DTS:ObjectName="LocalHost.Albarran_DW 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Albarran_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{B00AD031-6513-4F65-8D9B-62B80C69A101}LocalHost.Albarran_DW 4;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dimensión D_CLIENTE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{331493ED-6DFA-4C56-A4CA-0E1E5E2F737F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dimensión D_CLIENTE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dimensión D_EMPLEADO"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2EE9E449-F291-4EEE-AB43-0F79E5A69BAD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dimensión D_EMPLEADO"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dimensión D_SUCURSAL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4E34A9C2-B8C4-450D-8BA1-6EA7C11FB422}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dimensión D_SUCURSAL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dimensión D_TIEMPO"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1E316CC6-CC6F-48D3-A0A3-52ECC534732B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dimensión D_TIEMPO">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen cargos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen cargos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[cargos]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen cargos.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output].Columns[cargo_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output].ExternalColumns[cargo_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output].Columns[cargo_id]"
+                      name="cargo_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output].ExternalColumns[cargo_id]"
+                      dataType="i4"
+                      name="cargo_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output].Columns[cargo_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output].Columns[cargo_id]"
+                      name="cargo_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen cargos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen categorias"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen categorias"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[categorias]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen categorias.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output].Columns[categoria_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output].ExternalColumns[categoria_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output].Columns[categoria_id]"
+                      name="categoria_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output].Columns[categoria]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output].ExternalColumns[categoria]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output].Columns[categoria]"
+                      name="categoria"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output].ExternalColumns[categoria_id]"
+                      dataType="i4"
+                      name="categoria_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Output].ExternalColumns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      name="categoria" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output].Columns[categoria_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output].Columns[categoria_id]"
+                      name="categoria_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output].Columns[categoria]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output].Columns[categoria]"
+                      name="categoria" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen categorias.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen clientes"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen clientes"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[clientes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen clientes.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[cliente_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[cliente_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[cliente_id]"
+                      name="cliente_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[appaterno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[appaterno]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[appaterno]"
+                      name="appaterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[apmaterno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[apmaterno]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[apmaterno]"
+                      name="apmaterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
+                      length="1"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[sexo]"
+                      name="sexo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[fecha_nacimiento]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[fecha_nacimiento]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[fecha_nacimiento]"
+                      name="fecha_nacimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[estado_civil]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[estado_civil]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].Columns[estado_civil]"
+                      name="estado_civil"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[cliente_id]"
+                      dataType="i4"
+                      name="cliente_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[appaterno]"
+                      dataType="wstr"
+                      length="255"
+                      name="appaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[apmaterno]"
+                      dataType="wstr"
+                      length="255"
+                      name="apmaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[fecha_nacimiento]"
+                      dataType="dbTimeStamp"
+                      name="fecha_nacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Output].ExternalColumns[estado_civil]"
+                      dataType="wstr"
+                      length="255"
+                      name="estado_civil" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[cliente_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[cliente_id]"
+                      name="cliente_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[appaterno]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[appaterno]"
+                      name="appaterno" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[apmaterno]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[apmaterno]"
+                      name="apmaterno" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[sexo]"
+                      name="sexo" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[fecha_nacimiento]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[fecha_nacimiento]"
+                      name="fecha_nacimiento" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[estado_civil]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[estado_civil]"
+                      name="estado_civil" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen clientes.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen comunas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen comunas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[comunas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen comunas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output].Columns[comuna_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output].ExternalColumns[comuna_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output].Columns[comuna_id]"
+                      name="comuna_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output].Columns[comuna]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output].ExternalColumns[comuna]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output].Columns[comuna]"
+                      name="comuna"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output].ExternalColumns[comuna_id]"
+                      dataType="i4"
+                      name="comuna_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Output].ExternalColumns[comuna]"
+                      dataType="wstr"
+                      length="255"
+                      name="comuna" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output].Columns[comuna_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output].Columns[comuna_id]"
+                      name="comuna_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output].Columns[comuna]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output].Columns[comuna]"
+                      name="comuna" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen comunas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen detalle_ventas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[detalle_ventas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[venta_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[venta_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[venta_id]"
+                      name="venta_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[producto_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[producto_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[producto_id]"
+                      name="producto_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[cantidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[cantidad]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[cantidad]"
+                      name="cantidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[precio_unitario]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[precio_unitario]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[precio_unitario]"
+                      name="precio_unitario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[descuento]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[descuento]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].Columns[descuento]"
+                      name="descuento"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[venta_id]"
+                      dataType="i4"
+                      name="venta_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[producto_id]"
+                      dataType="i4"
+                      name="producto_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[cantidad]"
+                      dataType="i4"
+                      name="cantidad" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[precio_unitario]"
+                      dataType="i4"
+                      name="precio_unitario" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Output].ExternalColumns[descuento]"
+                      dataType="numeric"
+                      name="descuento"
+                      precision="5"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[venta_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[venta_id]"
+                      name="venta_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[producto_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[producto_id]"
+                      name="producto_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[cantidad]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[cantidad]"
+                      name="cantidad" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[precio_unitario]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[precio_unitario]"
+                      name="precio_unitario" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[descuento]"
+                      dataType="numeric"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[descuento]"
+                      name="descuento"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen detalle_ventas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen empleados"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen empleados"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[empleados]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen empleados.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[empleado_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[empleado_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[empleado_id]"
+                      name="empleado_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[appaterno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[appaterno]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[appaterno]"
+                      name="appaterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[apmaterno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[apmaterno]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[apmaterno]"
+                      name="apmaterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[fecha_contrato]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[fecha_contrato]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[fecha_contrato]"
+                      name="fecha_contrato"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[sueldo_base]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[sueldo_base]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[sueldo_base]"
+                      name="sueldo_base"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[cargo_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[cargo_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].Columns[cargo_id]"
+                      name="cargo_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[empleado_id]"
+                      dataType="i4"
+                      name="empleado_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[appaterno]"
+                      dataType="wstr"
+                      length="255"
+                      name="appaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[apmaterno]"
+                      dataType="wstr"
+                      length="255"
+                      name="apmaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[fecha_contrato]"
+                      dataType="dbTimeStamp"
+                      name="fecha_contrato" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[sueldo_base]"
+                      dataType="i4"
+                      name="sueldo_base" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Output].ExternalColumns[cargo_id]"
+                      dataType="i4"
+                      name="cargo_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[empleado_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[empleado_id]"
+                      name="empleado_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[appaterno]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[appaterno]"
+                      name="appaterno" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[apmaterno]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[apmaterno]"
+                      name="apmaterno" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[fecha_contrato]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[fecha_contrato]"
+                      name="fecha_contrato" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[sueldo_base]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[sueldo_base]"
+                      name="sueldo_base" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[cargo_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[cargo_id]"
+                      name="cargo_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen empleados.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen productos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen productos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[productos]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen productos.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[producto_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[producto_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[producto_id]"
+                      name="producto_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[nombre]"
+                      name="nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[precio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[precio]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[precio]"
+                      name="precio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[descripcion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[descripcion]"
+                      name="descripcion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[categoria_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[categoria_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].Columns[categoria_id]"
+                      name="categoria_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[producto_id]"
+                      dataType="i4"
+                      name="producto_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[precio]"
+                      dataType="i4"
+                      name="precio" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      name="descripcion" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Output].ExternalColumns[categoria_id]"
+                      dataType="i4"
+                      name="categoria_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[producto_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[producto_id]"
+                      name="producto_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[nombre]"
+                      name="nombre" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[precio]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[precio]"
+                      name="precio" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[descripcion]"
+                      name="descripcion" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[categoria_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[categoria_id]"
+                      name="categoria_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen productos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen sucursales"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen sucursales"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[sucursales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen sucursales.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].Columns[sucursal_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].ExternalColumns[sucursal_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].Columns[sucursal_id]"
+                      name="sucursal_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].Columns[sucursal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].ExternalColumns[sucursal]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].Columns[sucursal]"
+                      name="sucursal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].Columns[comuna_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].ExternalColumns[comuna_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].Columns[comuna_id]"
+                      name="comuna_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].ExternalColumns[sucursal_id]"
+                      dataType="i4"
+                      name="sucursal_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].ExternalColumns[sucursal]"
+                      dataType="wstr"
+                      length="255"
+                      name="sucursal" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Output].ExternalColumns[comuna_id]"
+                      dataType="i4"
+                      name="comuna_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[sucursal_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[sucursal_id]"
+                      name="sucursal_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[sucursal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[sucursal]"
+                      name="sucursal" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[comuna_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[comuna_id]"
+                      name="comuna_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen sucursales.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dimensión D_TIEMPO\Origen ventas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Origen ventas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ventas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dimensión D_TIEMPO\Origen ventas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Albarran_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[venta_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[venta_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[venta_id]"
+                      name="venta_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[vendedor_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[vendedor_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[vendedor_id]"
+                      name="vendedor_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[cliente_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[cliente_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[cliente_id]"
+                      name="cliente_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[sucursal_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[sucursal_id]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[sucursal_id]"
+                      name="sucursal_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[fecha]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[fecha]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[tipo_documento]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[tipo_documento]"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[tipo_documento]"
+                      name="tipo_documento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[numero_documento]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[numero_documento]"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].Columns[numero_documento]"
+                      name="numero_documento"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[venta_id]"
+                      dataType="i4"
+                      name="venta_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[vendedor_id]"
+                      dataType="i4"
+                      name="vendedor_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[cliente_id]"
+                      dataType="i4"
+                      name="cliente_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[sucursal_id]"
+                      dataType="i4"
+                      name="sucursal_id" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[fecha]"
+                      dataType="dbTimeStamp"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[tipo_documento]"
+                      dataType="wstr"
+                      length="255"
+                      name="tipo_documento" />
+                    <externalMetadataColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Output].ExternalColumns[numero_documento]"
+                      dataType="i4"
+                      name="numero_documento" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[venta_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[venta_id]"
+                      name="venta_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[vendedor_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[vendedor_id]"
+                      name="vendedor_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[cliente_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[cliente_id]"
+                      name="cliente_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[sucursal_id]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[sucursal_id]"
+                      name="sucursal_id" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[fecha]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[tipo_documento]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[tipo_documento]"
+                      name="tipo_documento" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[numero_documento]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[numero_documento]"
+                      name="numero_documento" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dimensión D_TIEMPO\Origen ventas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dimesión D_PRODUCTO"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F6B6D1D8-D4DE-4EFB-9FEC-5473EFBCC092}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dimesión D_PRODUCTO"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Eliminar Datos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{034EC683-1EC2-4EBE-848F-25B5233B981F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Eliminar Datos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C66DAA92-BFFD-4B63-A36A-3B45BA2D14AF}"
+          SQLTask:SqlStatementSource="delete from sucursales;&#xA;delete from productos;&#xA;delete from comunas;&#xA;delete from cargos;&#xA;delete from detalle_ventas;&#xA;delete from ventas;&#xA;delete from empleados;&#xA;delete from cargos;&#xA;delete from clientes;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Hecho DETALLE_VENTAS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3E165849-34D2-444A-9AC1-1DF93FAB2C5A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Hecho DETALLE_VENTAS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\Dimensión D_CLIENTE"
+          TopLeft="491.66664712959,24.5555557507056" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Dimensión D_EMPLEADO"
+          TopLeft="26.8055544903985,117.722223157794" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\Dimensión D_SUCURSAL"
+          TopLeft="251.388878899592,23.1111112947818" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Dimesión D_PRODUCTO"
+          TopLeft="261.805545152338,115.555556473909" />
+        <NodeLayout
+          Size="146.4,41.6"
+          Id="Package\Eliminar Datos"
+          TopLeft="49.8055537950111,23.4111112534559" />
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\Hecho DETALLE_VENTAS"
+          TopLeft="36.1111096761847,216.666668388579" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Dimensión D_TIEMPO"
+          TopLeft="532.138882028836,113.31111149108" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Dimensión D_TIEMPO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen detalle_ventas"
+          TopLeft="13.0952380952381,186.309523809524" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen productos"
+          TopLeft="16.6666666666666,25.3333333333333" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen comunas"
+          TopLeft="16.4285714285714,328.571428571429" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen empleados"
+          TopLeft="374.285714285714,325.714285714286" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen clientes"
+          TopLeft="384.285714285714,182.142857142857" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen categorias"
+          TopLeft="192.166666666667,25.6666666666667" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen sucursales"
+          TopLeft="373.166666666667,25.5" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen cargos"
+          TopLeft="203.571428571429,327.857142857143" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Dimensión D_TIEMPO\Origen ventas"
+          TopLeft="202.857142857143,185" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
