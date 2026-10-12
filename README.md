@@ -61,3 +61,30 @@ FactDetalleVenta
 |    | descuento | float |
 |    | monto_total | int |
 |    | tipo_documento | varchar(50) |
+
+## Tecnologías utilizadas
+
+| Tecnología | Uso |
+| --- | --- |
+| SQL Server 2019 Developer | Base de datos transaccional y dimensional |
+| SQL Server Management Studio (SSMS) | Administración y consultas |
+| Visual Studio 2019 Community | Entorno de desarrollo |
+| SSIS (SQL Server Integration Services) | Proceso ETL |
+| Git y GitHub | Control de versiones y gestión de tareas |
+
+## Estructura del repositorio
+```
+bi-muebleria-albarran-dw/
+├── README.md
+├── .gitignore
+├── docs/
+│   ├── modelo-dimensional/   Diagrama y documentación del modelo
+│   └── presentacion/         Presentación del proyecto
+├── database/
+│   ├── scripts/              Scripts SQL del modelo y validaciones
+│   └── backup/               Backup (.bak) de la base dimensional
+├── etl/
+│   └── proyecto-ssis/        Proyecto de Visual Studio con el ETL
+├── olap/                     Fase 2
+└── powerbi/                  Fase 2
+```
