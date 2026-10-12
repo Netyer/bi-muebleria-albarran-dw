@@ -23,3 +23,41 @@ Los datos analizados corresponden a 365 ventas del año 2017 por un total de $41
 
 ## Objetivo del proyecto
 Objetivo general: diseñar e implementar una solución de Inteligencia de Negocios para la Mueblería Albarrán que apoye la toma de decisiones del propietario.
+
+## Modelo dimensional
+Se diseñó un modelo estrella siguiendo los cuatro pasos de Kimball.
+
+### Proceso de negocio
+Venta de muebles.
+
+### Granularidad
+Una fila por línea de detalle de venta.
+
+### Dimensiones
+
+| Dimensión | Campos | 
+| --- | --- |
+| DimTiempo | fecha, año, mes, día, día de la semana, hora |
+| DimProducto | nombre producto, categoría |
+| DimCliente | nombre cliente, sexo, fecha de nacimiento, grupo etario, estado civil |
+| DimEmpleado | nombre empleado, sexo, fecha de nacimiento, antiguedad, cargo |
+| DimSucursal | sucursal, comuna |
+
+
+### Tabla de hechos y medidas
+
+FactDetalleVenta
+
+| Clave | Campo | Tipo | 
+| --- | --- | --- |
+| PK | id_fact_ventas | int |
+| FK | id_tiempo | int |
+| FK | id_producto | int |
+| FK | id_cliente | int |
+| FK | id_empleado | int |
+| FK | id_sucursal | int |
+|    | cantidad | tinyint |
+|    | precio_unitario | int |
+|    | descuento | float |
+|    | monto_total | int |
+|    | tipo_documento | varchar(50) |
