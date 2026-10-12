@@ -7,10 +7,10 @@ Empresa del rubro de la mueblería que ha crecido rápidamente y requiere incorp
 
 | Integrante | Usuario de GitHub |
 | --- | --- |
-| [Cristóbal Carvacho] | [@CristobalCarvacho115] |
-| [Tania Contreras] | [@Netyer] |
-| [Lisbeth Herrera] | [@Lisherrera] |
-| [Ignacio Parada] | [@Chumlee197] |
+| Cristóbal Carvacho | @CristobalCarvacho115 |
+| Tania Contreras | @Netyer |
+| Lisbeth Herrera | @Lisherrera |
+| Ignacio Parada | @Chumlee197 |
 
 - **Asignatura:** Inteligencia de Negocios
 - **Sección:** 300
