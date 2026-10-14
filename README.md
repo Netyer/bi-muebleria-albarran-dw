@@ -144,3 +144,168 @@ bi-muebleria-albarran-dw/
 ├── olap/                     Fase 2
 └── powerbi/                  Fase 2
 ```
+
+## Instrucciones de ejecución/revisión
+
+### 1. Descripción general
+
+El proyecto **Mueblería Albarrán** utiliza **SQL Server Integration Services (SSIS)** para extraer información desde una base de datos transaccional (`Albarran`) y cargarla en un **Data Warehouse** (`Albarran_DW`) diseñado mediante un modelo en estrella.
+
+Este instructivo detalla los pasos necesarios para clonar el repositorio desde GitHub, configurar las conexiones y ejecutar el paquete ETL en cualquier entorno de trabajo local.
+
+---
+
+### 2. Requisitos previos
+
+Antes de comenzar, asegúrate de contar con el siguiente software e insumos instalados y configurados:
+
+* **Git**: Para la clonación y control de versiones del repositorio.
+* **SQL Server** (Edición Developer, Express o Standard) con **SQL Server Management Studio (SSMS)**.
+* **Visual Studio** (2019 o superior) con la extensión **SQL Server Integration Services Projects** habilitada.
+* **Respaldo de Base Transaccional**: Archivo `.bak` de la base de datos de origen `Albarran`.
+* **Respaldo del Data Warehouse**: Archivo `.bak` de la estructura del Data Warehouse `Albarran_DW_Estructura.bak`.
+
+---
+
+### 3. Clonación del proyecto
+
+1. Abre tu terminal (Git Bash, Command Prompt o PowerShell).
+2. Navega hasta el directorio local donde deseas almacenar el proyecto.
+3. Ejecuta el comando de clonación:
+
+```bash
+git clone [https://github.com/Netyer/bi-muebleria-albarran-dw.git](https://github.com/Netyer/bi-muebleria-albarran-dw.git)
+```
+
+4. Accede a la carpeta clonada del proyecto:
+```
+cd bi-muebleria-albarran-dw
+```
+---
+### 4. Restauración de las bases de datos
+
+1. Abre SQL Server Management Studio (SSMS) y conéctate a tu instancia local de SQL Server.
+
+2. En el Explorador de objetos, haz clic derecho sobre Bases de datos y selecciona Restaurar base de datos...
+
+3. En la ventana de restauración, selecciona la opción Dispositivo y busca los archivos .bak correspondientes:
+
+   - Albarran: Base de datos transaccional original (contiene clientes, productos, empleados y ventas).
+
+   - Albarran_DW: Base de datos destino (contiene las tablas de dimensiones y la tabla de hechos limpia/vacía).
+
+Nota: Se recomienda restaurar una copia limpia/vacía de Albarran_DW para verificar que el proceso ETL realiza la extracción y carga completa desde cero.
+
+---
+
+### 5. Identificación del servidor SQL
+Dentro de SSMS, ejecuta la siguiente consulta en una nueva ventana de consulta:
+
+```
+SELECT @@SERVERNAME AS NombreServidor;
+```
+
+Guardar el nombre obtenido, ya que será necesario para configurar las conexiones del proyecto.
+
+### 6. Configuración del proyecto en Visual Studio
+
+1. En la carpeta clonada, ubica y abre el archivo de solución del proyecto (.sln) con Visual Studio.
+
+2. En el Explorador de soluciones, ubica y abre el archivo Project.params.
+
+3. Modifica los valores de los parámetros de conexión según tu instancia local:
+
+| Parámetro | Valor |
+|---|---|
+| `pServidorSQL` | Nombre del servidor SQL del computador |
+| `pBaseOrigen` | `Albarran` |
+| `pBaseDestino` | `Albarran_DW` |
+
+4. Guarda los cambios (Ctrl + S).
+
+Ventaja de la parametrización: Al estar parametrizadas las conexiones, el proyecto se adapta a cualquier equipo sin necesidad de modificar consultas SQL o componentes dentro de los flujos de datos del ETL.
+
+### 7. Verificación de conexiones
+
+1. Abre el paquete Package.dtsx en el explorador de soluciones.
+
+2. Dirígete al panel inferior Administradores de conexiones.
+
+3. Revisa y prueba las conexiones creadas:
+
+   - LocalHost.Albarran: Conexión hacia la base de datos transaccional.
+
+   - LocalHost.Albarran_DW: Conexión hacia el Data Warehouse.
+
+Haz clic derecho sobre cada conexión y selecciona Probar conexión para garantizar el acceso correcto.
+
+**Importante**: Las conexiones están configuradas con Autenticación de Windows, por lo que tu usuario actual de Windows debe poseer permisos de lectura y escritura en la instancia de SQL Server.
+
+### 8. Ejecución del proceso ETL
+
+1. Abre la pestaña flujo de control dentro de Package.dtsx.
+
+2. Presiona F5 (o haz clic en el botón Iniciar) para ejecutar la solución.
+
+**Flujo de trabajo del paquete**:
+
+1. Limpieza de datos: Se eliminan los registros previos en las tablas del Data Warehouse.
+
+2. Carga de Dimensión Productos (DIM_PRODUCTO).
+
+3. Carga de Dimensión Clientes (DIM_CLIENTE).
+
+4. Carga de Dimensión Sucursales (DIM_SUCURSAL).
+
+5. Carga de Dimensión Tiempo (DIM_TIEMPO).
+
+6. Carga de Dimensión Empleados (DIM_EMPLEADO).
+
+7. Carga de Tabla de Hechos (H_FACT_DETALLE_VENTA).
+
+**Atención**: La primera tarea del flujo elimina la información preexistente en el Data Warehouse. Asegúrate de ejecutarlo únicamente en entornos de desarrollo o pruebas.
+
+### 9. Validación de resultados
+
+Una vez que todas las tareas en el flujo de control se muestren en verde (ejecución exitosa), abre SSMS y ejecuta la siguiente validación:
+
+```
+USE Albarran_DW;
+
+SELECT 
+    COUNT(*) AS TotalRegistros,
+    SUM(monto_total) AS MontoTotal
+FROM dbo.H_FACT_DETALLE_VENTA;
+```
+
+#### Resultados esperados
+
+**Tabla de hechos (H_FACT_DETALLE_VENTA)**
+| Indicador | Resultado esperado |
+| --- | ---: |
+| Registros de detalle de ventas | 365 |
+| Monto total de ventas | $41.402.446 |
+
+**Tablas de dimensiones**
+
+| Dimensión | Cantidad de Registros |
+| --- | ---: |
+| Productos (DIM_PRODUCTO) | 20 |
+| Clientes (DIM_CLIENTE) | 20 |
+| Sucursales (DIM_SUCURSAL) | 3 |
+| Tiempo (DIM_TIEMPO) | 227 |
+| Empleados (DIM_EMPLEADO) | 15 |
+
+### 10. Solución de Problemas Frecuentes
+
+- Error de Conexión / Login Failed:
+
+   - Verifica que el parámetro pServidorSQL coincida exactamente con la salida de SELECT @@SERVERNAME;.
+
+   - Asegúrate de que el servicio de SQL Server esté iniciado en Windows.
+
+- Fallos durante la ejecución en SSIS:
+
+   - Consulta la pestaña Progreso o Resultados de ejecución en Visual Studio para identificar el componente específico que generó el error.
+
+   - Confirma que los permisos del usuario incluyan capacidad de ejecución y modificación de tablas en ambas bases de datos.
