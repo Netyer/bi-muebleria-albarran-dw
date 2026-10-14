@@ -24,8 +24,86 @@ Los datos analizados corresponden a 365 ventas del año 2017 por un total de $41
 ## Objetivo del proyecto
 Objetivo general: diseñar e implementar una solución de Inteligencia de Negocios para la Mueblería Albarrán que apoye la toma de decisiones del propietario.
 
+## KPI definidos
+
+| Categoría | Nombre del KPI | Fórmula / Métrica | Justificación |
+| --- | --- | --- | --- |
+| Ventas y rendimiento financiero | Ventas Totales ($) | `SUM(monto_total)` | Mide los ingresos brutos totales generados por la mueblería en un periodo determinado. Es el indicador base de crecimiento del negocio. |
+| Ventas y rendimiento financiero | Ticket promedio de venta | `SUM(monto_total) / COUNT(DISTINCT id_fact_ventas)` | Evalúa el valor promedio invertido por transacción. Permite identificar la efectividad de estrategias de *upselling* o venta cruzada. |
+| Ventas y rendimiento financiero | Porcentaje promedio de descuento | `AVG(descuento) * 100` | Controla el margen de ganancia sacrificado en promociones y valida si los descuentos impulsan el volumen sin comprometer la rentabilidad. |
+| Gestión de productos | Volumen de unidades vendidas | `SUM(cantidad)` | Mide la rotación física del inventario. Permite identificar la demanda de muebles según la dimensión `DIM_PRODUCTO`. |
+| Gestión de productos | Ingreso por categoría de producto | `SUM(monto_total)` agrupado por `DIM_PRODUCTO.categoria` | Identifica qué líneas de productos (dormitorio, oficina, livings, etc.) generan mayor facturación y cuáles requieren revisión comercial. |
+| Gestión de sucursales | Ventas totales por sucursal / comuna | `SUM(monto_total)` agrupado por `DIM_SUCURSAL.nombre_sucursal` o `comuna` | Compara el desempeño operativo entre distintas ubicaciones geográficas para definir decisiones estratégicas de expansión o asignación de recursos. |
+| Capital humano | Ventas totales por empleado | `SUM(monto_total)` agrupado por `DIM_EMPLEADO.id_empleado` | Evalúa el desempeño individual del equipo comercial para establecer comisiones, metas de ventas o programas de capacitación. |
+| Capital humano | Rendimiento según cargo | `SUM(monto_total)` agrupado por `DIM_EMPLEADO.cargo` | Permite analizar el aporte a los ingresos según el perfil y nivel del trabajador dentro de la estructura de la empresa. |
+| Demografía de clientes | Distribución de ingresos por grupo etario y sexo | `SUM(monto_total)` agrupado por `DIM_CLIENTE.grupo_etario` y `DIM_CLIENTE.sexo` | Ayuda a caracterizar el perfil del comprador principal de Mueblería Albarrán, orientando las campañas de marketing directo. |
+
 ## Modelo dimensional
 Se diseñó un modelo estrella siguiendo los cuatro pasos de Kimball.
+
+```mermaid
+erDiagram
+    DIM_TIEMPO ||--o{ H_FACT_DETALLE_VENTA : "id_tiempo"
+    DIM_PRODUCTO ||--o{ H_FACT_DETALLE_VENTA : "id_producto"
+    DIM_CLIENTE ||--o{ H_FACT_DETALLE_VENTA : "id_cliente"
+    DIM_EMPLEADO ||--o{ H_FACT_DETALLE_VENTA : "id_empleado"
+    DIM_SUCURSAL ||--o{ H_FACT_DETALLE_VENTA : "id_sucursal"
+
+    H_FACT_DETALLE_VENTA {
+        int id_fact_ventas PK
+        int id_tiempo FK
+        int id_producto FK
+        int id_cliente FK
+        int id_empleado FK
+        int id_sucursal FK
+        int cantidad
+        decimal precio_unitario
+        decimal descuento
+        decimal monto_total
+        varchar tipo_documento
+    }
+
+    DIM_TIEMPO {
+        int id_tiempo PK
+        date fecha
+        time hora
+        varchar dia_semana
+        int dia
+        int mes
+        int anio
+    }
+
+    DIM_PRODUCTO {
+        int id_producto PK
+        varchar nombre_producto
+        varchar categoria
+    }
+
+    DIM_EMPLEADO {
+        int id_empleado PK
+        varchar nombre_empleado
+        varchar apellidos_empleado
+        varchar cargo
+        date fecha_contrato
+        decimal sueldo
+    }
+
+    DIM_CLIENTE {
+        int id_cliente PK
+        varchar nombre_cliente
+        varchar apellidos_cliente
+        varchar sexo
+        date fecha_nacimiento
+        varchar grupo_etario
+        varchar estado_civil
+    }
+
+    DIM_SUCURSAL {
+        int id_sucursal PK
+        varchar nombre_sucursal
+        varchar comuna
+    }
+```
 
 ### Proceso de negocio
 Venta de muebles.
@@ -35,20 +113,62 @@ Una fila por línea de detalle de venta.
 
 ### Dimensiones
 
-| Dimensión | Campos | 
-| --- | --- |
-| DimTiempo | fecha, año, mes, día, día de la semana, hora |
-| DimProducto | nombre producto, categoría |
-| DimCliente | nombre cliente, sexo, fecha de nacimiento, grupo etario, estado civil |
-| DimEmpleado | nombre empleado, sexo, fecha de nacimiento, antiguedad, cargo |
-| DimSucursal | sucursal, comuna |
+### DIM_TIEMPO
 
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_tiempo | int |
+| | fecha | date |
+| | hora | time |
+| | dia_semana | varchar(9) |
+| | dia | tinyint |
+| | mes | tinyint |
+| | anio | smallint |
+
+### DIM_PRODUCTO
+
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_producto | int |
+| | nombre_producto | varchar(50) |
+| | categoria | varchar(50) |
+
+### DIM_CLIENTE
+
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_cliente | int |
+| | nombre_cliente | varchar(50) |
+| | apellidos_cliente | varchar(50) |
+| | sexo | varchar(9) |
+| | fecha_nacimiento | date |
+| | grupo_etario | varchar(20) |
+| | estado_civil | varchar(20) |
+
+### DIM_EMPLEADO
+
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_empleado | int |
+| | nombre_empleado | varchar(50) |
+| | apellidos_empleado | varchar(50) |
+| | cargo | varchar(50) |
+| | fecha_contrato | date |
+| | sueldo | int |
+
+### DIM_SUCURSAL
+
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_sucursal | int |
+| | nombre_sucursal | varchar(50) |
+| | comuna | varchar(50) |
 
 ### Tabla de hechos y medidas
 
-FactDetalleVenta
+**H_FACT_DETALLE_VENTA**
 
-| Clave | Campo | Tipo | 
+| Clave | Campo | Tipo |
 | --- | --- | --- |
 | PK | id_fact_ventas | int |
 | FK | id_tiempo | int |
@@ -56,11 +176,11 @@ FactDetalleVenta
 | FK | id_cliente | int |
 | FK | id_empleado | int |
 | FK | id_sucursal | int |
-|    | cantidad | tinyint |
-|    | precio_unitario | int |
-|    | descuento | float |
-|    | monto_total | int |
-|    | tipo_documento | varchar(50) |
+| | cantidad | tinyint |
+| | precio_unitario | int |
+| | descuento | float |
+| | monto_total | int |
+| | tipo_documento | varchar(50) |
 
 ## Tecnologías utilizadas
 
@@ -88,3 +208,177 @@ bi-muebleria-albarran-dw/
 ├── olap/                     Fase 2
 └── powerbi/                  Fase 2
 ```
+
+## Instrucciones de ejecución/revisión
+
+### 1. Descripción general
+
+El proyecto **Mueblería Albarrán** utiliza **SQL Server Integration Services (SSIS)** para extraer información desde una base de datos transaccional (`Albarran`) y cargarla en un **Data Warehouse** (`Albarran_DW`) diseñado mediante un modelo en estrella.
+
+Este instructivo detalla los pasos necesarios para clonar el repositorio desde GitHub, configurar las conexiones y ejecutar el paquete ETL en cualquier entorno de trabajo local.
+
+---
+
+### 2. Requisitos previos
+
+Antes de comenzar, asegúrate de contar con el siguiente software e insumos instalados y configurados:
+
+* **Git**: Para la clonación y control de versiones del repositorio.
+* **SQL Server** (Edición Developer, Express o Standard) con **SQL Server Management Studio (SSMS)**.
+* **Visual Studio** (2019 o superior) con la extensión **SQL Server Integration Services Projects** habilitada.
+* **Respaldo de Base Transaccional**: Archivo `.bak` de la base de datos de origen `Albarran`.
+* **Respaldo del Data Warehouse**: Archivo `.bak` de la estructura del Data Warehouse `Albarran_DW_Estructura.bak`.
+
+---
+
+### 3. Clonación del proyecto
+
+1. Abre tu terminal (Git Bash, Command Prompt o PowerShell).
+2. Navega hasta el directorio local donde deseas almacenar el proyecto.
+3. Ejecuta el comando de clonación:
+
+```bash
+git clone [https://github.com/Netyer/bi-muebleria-albarran-dw.git](https://github.com/Netyer/bi-muebleria-albarran-dw.git)
+```
+
+4. Accede a la carpeta clonada del proyecto:
+```
+cd bi-muebleria-albarran-dw
+```
+---
+### 4. Restauración de las bases de datos
+
+1. Abre SQL Server Management Studio (SSMS) y conéctate a tu instancia local de SQL Server.
+
+2. En el Explorador de objetos, haz clic derecho sobre Bases de datos y selecciona Restaurar base de datos...
+
+3. En la ventana de restauración, selecciona la opción Dispositivo y busca los archivos .bak correspondientes:
+
+   - Albarran: Base de datos transaccional original (contiene clientes, productos, empleados y ventas).
+
+   - Albarran_DW: Base de datos destino (contiene las tablas de dimensiones y la tabla de hechos limpia/vacía).
+
+Nota: Se recomienda restaurar una copia limpia/vacía de Albarran_DW para verificar que el proceso ETL realiza la extracción y carga completa desde cero.
+
+---
+
+### 5. Identificación del servidor SQL
+Dentro de SSMS, ejecuta la siguiente consulta en una nueva ventana de consulta:
+
+```
+SELECT @@SERVERNAME AS NombreServidor;
+```
+
+Guardar el nombre obtenido, ya que será necesario para configurar las conexiones del proyecto.
+
+### 6. Configuración del proyecto en Visual Studio
+
+1. En la carpeta clonada, ubica y abre el archivo de solución del proyecto (.sln) con Visual Studio.
+
+2. En el Explorador de soluciones, ubica y abre el archivo Project.params.
+
+3. Modifica los valores de los parámetros de conexión según tu instancia local:
+
+| Parámetro | Valor |
+|---|---|
+| `pServidorSQL` | Nombre del servidor SQL del computador |
+| `pBaseOrigen` | `Albarran` |
+| `pBaseDestino` | `Albarran_DW` |
+
+4. Guarda los cambios (Ctrl + S).
+
+Ventaja de la parametrización: Al estar parametrizadas las conexiones, el proyecto se adapta a cualquier equipo sin necesidad de modificar consultas SQL o componentes dentro de los flujos de datos del ETL.
+
+### 7. Verificación de conexiones
+
+1. Abre el paquete Package.dtsx en el explorador de soluciones.
+
+2. Dirígete al panel inferior Administradores de conexiones.
+
+3. Revisa y prueba las conexiones creadas:
+
+   - LocalHost.Albarran: Conexión hacia la base de datos transaccional.
+
+   - LocalHost.Albarran_DW: Conexión hacia el Data Warehouse.
+
+Haz clic derecho sobre cada conexión y selecciona Probar conexión para garantizar el acceso correcto.
+
+**Importante**: Las conexiones están configuradas con Autenticación de Windows, por lo que tu usuario actual de Windows debe poseer permisos de lectura y escritura en la instancia de SQL Server.
+
+### 8. Ejecución del proceso ETL
+
+1. Abre la pestaña flujo de control dentro de Package.dtsx.
+
+2. Presiona F5 (o haz clic en el botón Iniciar) para ejecutar la solución.
+
+**Flujo de trabajo del paquete**:
+
+1. Limpieza de datos: Se eliminan los registros previos en las tablas del Data Warehouse.
+
+2. Carga de Dimensión Productos (DIM_PRODUCTO).
+
+3. Carga de Dimensión Clientes (DIM_CLIENTE).
+
+4. Carga de Dimensión Sucursales (DIM_SUCURSAL).
+
+5. Carga de Dimensión Tiempo (DIM_TIEMPO).
+
+6. Carga de Dimensión Empleados (DIM_EMPLEADO).
+
+7. Carga de Tabla de Hechos (H_FACT_DETALLE_VENTA).
+
+**Atención**: La primera tarea del flujo elimina la información preexistente en el Data Warehouse. Asegúrate de ejecutarlo únicamente en entornos de desarrollo o pruebas.
+
+### 9. Validación de resultados
+
+Una vez que todas las tareas en el flujo de control se muestren en verde (ejecución exitosa), abre SSMS y ejecuta la siguiente validación:
+
+```
+USE Albarran_DW;
+
+SELECT 
+    COUNT(*) AS TotalRegistros,
+    SUM(monto_total) AS MontoTotal
+FROM dbo.H_FACT_DETALLE_VENTA;
+```
+
+#### Resultados esperados
+
+**Tabla de hechos (H_FACT_DETALLE_VENTA)**
+| Indicador | Resultado esperado |
+| --- | ---: |
+| Registros de detalle de ventas | 365 |
+| Monto total de ventas | $41.402.446 |
+
+**Tablas de dimensiones**
+
+| Dimensión | Cantidad de Registros |
+| --- | ---: |
+| Productos (DIM_PRODUCTO) | 20 |
+| Clientes (DIM_CLIENTE) | 20 |
+| Sucursales (DIM_SUCURSAL) | 3 |
+| Tiempo (DIM_TIEMPO) | 227 |
+| Empleados (DIM_EMPLEADO) | 15 |
+
+### 10. Solución de Problemas Frecuentes
+
+- Error de Conexión / Login Failed:
+
+   - Verifica que el parámetro pServidorSQL coincida exactamente con la salida de SELECT @@SERVERNAME;.
+
+   - Asegúrate de que el servicio de SQL Server esté iniciado en Windows.
+
+- Fallos durante la ejecución en SSIS:
+
+   - Consulta la pestaña Progreso o Resultados de ejecución en Visual Studio para identificar el componente específico que generó el error.
+
+   - Confirma que los permisos del usuario incluyan capacidad de ejecución y modificación de tablas en ambas bases de datos.
+
+## Distribución de responsabilidades y aportes
+
+| Integrante | Responsabilidades | Aportes |
+| --- | --- | --- |
+| Cristóbal Carvacho | Modelo dimensional  | Creación del Data Warehouse |
+| Tania Contreras | Análisis de datos y documentación  | Análisis de datos, definición de KPI y documentación del proyecto (README.md) |
+| Lisbeth Herrera | ETL | Creación de la base y los orígenes |
+| Ignacio Parada | ETL | Creación de los destinos, el flujo y la validación de la carga de datos |
