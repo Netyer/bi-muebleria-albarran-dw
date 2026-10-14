@@ -28,15 +28,15 @@ Objetivo general: diseñar e implementar una solución de Inteligencia de Negoci
 
 | Categoría | Nombre del KPI | Fórmula / Métrica | Justificación |
 | --- | --- | --- | --- |
-| Ventas y rendimiento financiero | Ventas Totales ($) | $\sum (\text{monto\_total})$ | Mide los ingresos brutos totales generados por la mueblería en un periodo determinado. Es el indicador base de crecimiento del negocio. |
-| Ventas y rendimiento financiero | Ticket promedio de venta | $\frac{\sum \text{monto\_total}}{\text{Número único de } \text{id\_fact\_ventas}}$ | Evalúa el valor promedio invertido por transacción. Permite identificar la efectividad de estrategias de *upselling* o venta cruzada. |
-| Ventas y rendimiento financiero | Porcentaje promedio de descuento | $\text{Promedio}(\text{descuento}) \times 100$ | Controla el margen de ganancia sacrificado en promociones y valida si los descuentos impulsan el volumen sin comprometer la rentabilidad. |
-| Gestión de productos | Volumen de unidades vendidas | $\sum (\text{cantidad})$ | Mide la rotación física del inventario. Permite identificar la demanda de muebles según la dimensión `DIM_PRODUCTO`. |
-| Gestión de productos | Ingreso por categoría de producto | $\sum (\text{monto\_total})$ agrupado por `DIM_PRODUCTO.categoria` | Identifica qué líneas de productos (dormitorio, oficina, livings, etc.) generan mayor facturación y cuáles requieren revisión comercial. |
-| Gestión de sucursales | Ventas totales por sucursal / comuna | $\sum (\text{monto\_total})$ agrupado por `DIM_SUCURSAL.nombre_sucursal` o `comuna` | Compara el desempeño operativo entre distintas ubicaciones geográficas para definir decisiones estratégicas de expansión o asignación de recursos. |
-| Capital humano | Ventas totales por empleado | $\sum (\text{monto\_total})$ agrupado por `DIM_EMPLEADO.id_empleado` | Evalúa el desempeño individual del equipo comercial para establecer comisiones, metas de ventas o programas de capacitación. |
-| Capital humano | Rendimiento según cargo | $\sum (\text{monto\_total})$ agrupado por `DIM_EMPLEADO.cargo` | Permite analizar el aporte a los ingresos según el perfil y nivel del trabajador dentro de la estructura de la empresa. |
-| Demografía de clientes | Distribución de ingresos por grupo etario y sexo | $\sum (\text{monto\_total})$ agrupado por `DIM_CLIENTE.grupo_etario` y `DIM_CLIENTE.sexo` | Ayuda a caracterizar el perfil del comprador principal de Mueblería Albarrán, orientando las campañas de marketing directo. |
+| Ventas y rendimiento financiero | Ventas Totales ($) | `SUM(monto_total)` | Mide los ingresos brutos totales generados por la mueblería en un periodo determinado. Es el indicador base de crecimiento del negocio. |
+| Ventas y rendimiento financiero | Ticket promedio de venta | `SUM(monto_total) / COUNT(DISTINCT id_fact_ventas)` | Evalúa el valor promedio invertido por transacción. Permite identificar la efectividad de estrategias de *upselling* o venta cruzada. |
+| Ventas y rendimiento financiero | Porcentaje promedio de descuento | `AVG(descuento) * 100` | Controla el margen de ganancia sacrificado en promociones y valida si los descuentos impulsan el volumen sin comprometer la rentabilidad. |
+| Gestión de productos | Volumen de unidades vendidas | `SUM(cantidad)` | Mide la rotación física del inventario. Permite identificar la demanda de muebles según la dimensión `DIM_PRODUCTO`. |
+| Gestión de productos | Ingreso por categoría de producto | `SUM(monto_total)` agrupado por `DIM_PRODUCTO.categoria` | Identifica qué líneas de productos (dormitorio, oficina, livings, etc.) generan mayor facturación y cuáles requieren revisión comercial. |
+| Gestión de sucursales | Ventas totales por sucursal / comuna | `SUM(monto_total)` agrupado por `DIM_SUCURSAL.nombre_sucursal` o `comuna` | Compara el desempeño operativo entre distintas ubicaciones geográficas para definir decisiones estratégicas de expansión o asignación de recursos. |
+| Capital humano | Ventas totales por empleado | `SUM(monto_total)` agrupado por `DIM_EMPLEADO.id_empleado` | Evalúa el desempeño individual del equipo comercial para establecer comisiones, metas de ventas o programas de capacitación. |
+| Capital humano | Rendimiento según cargo | `SUM(monto_total)` agrupado por `DIM_EMPLEADO.cargo` | Permite analizar el aporte a los ingresos según el perfil y nivel del trabajador dentro de la estructura de la empresa. |
+| Demografía de clientes | Distribución de ingresos por grupo etario y sexo | `SUM(monto_total)` agrupado por `DIM_CLIENTE.grupo_etario` y `DIM_CLIENTE.sexo` | Ayuda a caracterizar el perfil del comprador principal de Mueblería Albarrán, orientando las campañas de marketing directo. |
 
 ## Modelo dimensional
 Se diseñó un modelo estrella siguiendo los cuatro pasos de Kimball.
