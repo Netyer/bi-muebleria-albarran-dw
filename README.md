@@ -309,3 +309,12 @@ FROM dbo.H_FACT_DETALLE_VENTA;
    - Consulta la pestaña Progreso o Resultados de ejecución en Visual Studio para identificar el componente específico que generó el error.
 
    - Confirma que los permisos del usuario incluyan capacidad de ejecución y modificación de tablas en ambas bases de datos.
+
+## Distribución de responsabilidades y aportes
+
+| Integrante | Responsabilidades | Aportes |
+| --- | --- | --- |
+| Cristóbal Carvacho | Modelo dimensional  | Creación del Data Warehouse |
+| Tania Contreras | Análisis de datos y documentación  | Análisis de datos, definición de KPI y documentación del proyecto (README.md) |
+| Lisbeth Herrera | ETL | Creación de la base y los orígenes |
+| Ignacio Parada | ETL | Creación de los destinos, el flujo y la validación de la carga de datos |
