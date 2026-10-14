@@ -35,20 +35,62 @@ Una fila por línea de detalle de venta.
 
 ### Dimensiones
 
-| Dimensión | Campos | 
-| --- | --- |
-| DimTiempo | fecha, año, mes, día, día de la semana, hora |
-| DimProducto | nombre producto, categoría |
-| DimCliente | nombre cliente, sexo, fecha de nacimiento, grupo etario, estado civil |
-| DimEmpleado | nombre empleado, sexo, fecha de nacimiento, antiguedad, cargo |
-| DimSucursal | sucursal, comuna |
+### DIM_TIEMPO
 
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_tiempo | int |
+| | fecha | date |
+| | hora | time |
+| | dia_semana | varchar(9) |
+| | dia | tinyint |
+| | mes | tinyint |
+| | anio | smallint |
+
+### DIM_PRODUCTO
+
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_producto | int |
+| | nombre_producto | varchar(50) |
+| | categoria | varchar(50) |
+
+### DIM_CLIENTE
+
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_cliente | int |
+| | nombre_cliente | varchar(50) |
+| | apellidos_cliente | varchar(50) |
+| | sexo | varchar(9) |
+| | fecha_nacimiento | date |
+| | grupo_etario | varchar(20) |
+| | estado_civil | varchar(20) |
+
+### DIM_EMPLEADO
+
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_empleado | int |
+| | nombre_empleado | varchar(50) |
+| | apellidos_empleado | varchar(50) |
+| | cargo | varchar(50) |
+| | fecha_contrato | date |
+| | sueldo | int |
+
+### DIM_SUCURSAL
+
+| Clave | Campo | Tipo |
+| --- | --- | --- |
+| PK | id_sucursal | int |
+| | nombre_sucursal | varchar(50) |
+| | comuna | varchar(50) |
 
 ### Tabla de hechos y medidas
 
-FactDetalleVenta
+**H_FACT_DETALLE_VENTA**
 
-| Clave | Campo | Tipo | 
+| Clave | Campo | Tipo |
 | --- | --- | --- |
 | PK | id_fact_ventas | int |
 | FK | id_tiempo | int |
@@ -56,11 +98,11 @@ FactDetalleVenta
 | FK | id_cliente | int |
 | FK | id_empleado | int |
 | FK | id_sucursal | int |
-|    | cantidad | tinyint |
-|    | precio_unitario | int |
-|    | descuento | float |
-|    | monto_total | int |
-|    | tipo_documento | varchar(50) |
+| | cantidad | tinyint |
+| | precio_unitario | int |
+| | descuento | float |
+| | monto_total | int |
+| | tipo_documento | varchar(50) |
 
 ## Tecnologías utilizadas
 
