@@ -7,10 +7,10 @@ Empresa del rubro de la mueblería que ha crecido rápidamente y requiere incorp
 
 | Integrante | Usuario de GitHub |
 | --- | --- |
-| [Cristóbal Carvacho] | [@CristobalCarvacho115] |
-| [Tania Contreras] | [@Netyer] |
-| [Lisbeth Herrera] | [@Lisherrera] |
-| [Ignacio Parada] | [@Chumlee197] |
+| Cristóbal Carvacho | @CristobalCarvacho115 |
+| Tania Contreras | @Netyer |
+| Lisbeth Herrera | @Lisherrera |
+| Ignacio Parada | @Chumlee197 |
 
 - **Asignatura:** Inteligencia de Negocios
 - **Sección:** 300
@@ -23,3 +23,68 @@ Los datos analizados corresponden a 365 ventas del año 2017 por un total de $41
 
 ## Objetivo del proyecto
 Objetivo general: diseñar e implementar una solución de Inteligencia de Negocios para la Mueblería Albarrán que apoye la toma de decisiones del propietario.
+
+## Modelo dimensional
+Se diseñó un modelo estrella siguiendo los cuatro pasos de Kimball.
+
+### Proceso de negocio
+Venta de muebles.
+
+### Granularidad
+Una fila por línea de detalle de venta.
+
+### Dimensiones
+
+| Dimensión | Campos | 
+| --- | --- |
+| DimTiempo | fecha, año, mes, día, día de la semana, hora |
+| DimProducto | nombre producto, categoría |
+| DimCliente | nombre cliente, sexo, fecha de nacimiento, grupo etario, estado civil |
+| DimEmpleado | nombre empleado, sexo, fecha de nacimiento, antiguedad, cargo |
+| DimSucursal | sucursal, comuna |
+
+
+### Tabla de hechos y medidas
+
+FactDetalleVenta
+
+| Clave | Campo | Tipo | 
+| --- | --- | --- |
+| PK | id_fact_ventas | int |
+| FK | id_tiempo | int |
+| FK | id_producto | int |
+| FK | id_cliente | int |
+| FK | id_empleado | int |
+| FK | id_sucursal | int |
+|    | cantidad | tinyint |
+|    | precio_unitario | int |
+|    | descuento | float |
+|    | monto_total | int |
+|    | tipo_documento | varchar(50) |
+
+## Tecnologías utilizadas
+
+| Tecnología | Uso |
+| --- | --- |
+| SQL Server 2019 Developer | Base de datos transaccional y dimensional |
+| SQL Server Management Studio (SSMS) | Administración y consultas |
+| Visual Studio 2019 Community | Entorno de desarrollo |
+| SSIS (SQL Server Integration Services) | Proceso ETL |
+| Git y GitHub | Control de versiones y gestión de tareas |
+
+## Estructura del repositorio
+```
+bi-muebleria-albarran-dw/
+├── README.md
+├── .gitignore
+├── docs/
+│   ├── modelo-dimensional/   Diagrama y documentación del modelo
+│   └── presentacion/         Presentación del proyecto
+├── database/
+│   ├── scripts/              Scripts SQL del modelo y validaciones
+│   └── backup/               Backup (.bak) de la base dimensional
+├── etl/
+│   └── proyecto-ssis/        Proyecto de Visual Studio con el ETL
+├── olap/                     Fase 2
+└── powerbi/                  Fase 2
+```
