@@ -359,8 +359,47 @@ FROM dbo.H_FACT_DETALLE_VENTA;
 | Sucursales (DIM_SUCURSAL) | 3 |
 | Tiempo (DIM_TIEMPO) | 227 |
 | Empleados (DIM_EMPLEADO) | 15 |
+ 
+### 10. Cubo OLAP (fase 2)
 
-### 10. Solución de Problemas Frecuentes
+El desarrollo del análisis multidimensional está estructurado dentro de la solución `MultidimensionalAlbarran.sln` y el proyecto de Analysis Services `MultidimensionalAlbarran.dwproj`. A partir del análisis de los archivos del proyecto, la arquitectura del cubo se compone de los siguientes elementos técnicos específicos:
+
+* **Conexión y modelo lógico:**
+  * `Albarran DW.ds` (data source): archivo que establece la cadena de conexión y las credenciales hacia la base de datos relacional subyacente (data warehouse) en SQL Server.
+  * `Albarran DW.dsv` (data source view): vista del origen de datos que define el esquema relacional en SSAS. Este archivo mapea la tabla de hechos con las dimensiones, estableciendo las claves primarias (PK) y foráneas (FK) necesarias para que el cubo entienda las relaciones del modelo.
+
+* **Dimensiones analíticas (.dim):**
+  El modelo implementa cinco dimensiones físicas independientes que permiten filtrar, agrupar y desglosar la información del negocio:
+  * `DIM CLIENTE.dim`: analiza el comportamiento y la segmentación de los compradores.
+  * `DIM EMPLEADO.dim`: permite cruzar los datos para evaluar el rendimiento comercial del personal.
+  * `DIM PRODUCTO.dim`: desglosa las ventas según los diferentes muebles y artículos del catálogo.
+  * `DIM SUCURSAL.dim`: habilita la comparación del rendimiento de ventas por cada tienda física.
+  * `DIM TIEMPO.dim`: dimensión fundamental para establecer jerarquías temporales (año, semestre, mes, día) y analizar la evolución histórica de las ventas.
+
+* **Núcleo multidimensional y optimización:**
+  * `Albarran DW.cube`: es el archivo principal del cubo donde confluyen las cinco dimensiones y la tabla de hechos. Define los *measure groups* (grupos de medida) y consolida las métricas cuantitativas requeridas por los KPI del proyecto.
+  * `Albarran DW.partitions`: contiene el esquema de particionamiento físico de los datos de la tabla de hechos. El uso de particiones optimiza el procesamiento del cubo y el rendimiento de las consultas, típicamente dividiendo grandes volúmenes de datos históricos en fragmentos más pequeños (por ejemplo, por año o mes).
+  * `MultidimensionalAlbarran.database`: archivo de metadatos y configuración que indica cómo debe ser compilada y desplegada la base de datos multidimensional completa dentro del servidor SSAS.
+
+### 11. Dashboard en Power BI
+
+El archivo `panelAlbarran.pbix` contiene el dashboard final diseñado para Mueblería Albarrán. Este panel está construido para consumir la información consolidada en el modelo dimensional y responder directamente a las preguntas estratégicas del negocio. 
+
+Sus componentes y funcionalidades principales son:
+
+* **Visualización interactiva de KPI:**
+  La interfaz del reporte está orientada al usuario final y materializa los indicadores de rendimiento definidos en la fase 1 del proyecto:
+  * **Análisis de sucursales:** gráficos y matrices que muestran los ingresos totales por sucursal y período, permitiendo comparar la rentabilidad histórica entre las distintas tiendas de la mueblería.
+  * **Desempeño del personal:** visualizaciones que evalúan el rendimiento de ventas por empleado, utilizando los datos consolidados de la dimensión empleado.
+  * **Rotación de inventario:** análisis del volumen de ventas por producto para identificar rápidamente cuáles son los muebles y artículos más y menos demandados por los clientes.
+
+* **Conexión directa al cubo OLAP:**
+  El panel establece una conexión hacia el cubo `Albarran DW.cube` procesado en SSAS. Esto permite que Power BI delegue el procesamiento pesado al servidor multidimensional y herede automáticamente las jerarquías (como año, semestre, mes y día de la dimensión tiempo) y las medidas calculadas previamente.
+
+* **Modelo de datos relacional:**
+  A nivel interno, el dashboard refleja el modelo en estrella diseñado en la fase 1, conectando la tabla de hechos central de ventas con las dimensiones de cliente, empleado, producto, sucursal y tiempo para permitir filtros cruzados precisos en toda la página.
+
+### 12. Solución de Problemas Frecuentes
 
 - Error de Conexión / Login Failed:
 
