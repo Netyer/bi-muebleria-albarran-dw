@@ -417,7 +417,7 @@ Sus componentes y funcionalidades principales son:
 
 | Integrante | Responsabilidades | Aportes |
 | --- | --- | --- |
-| Cristóbal Carvacho | Modelo dimensional  | Creación del Data Warehouse |
-| Tania Contreras | Análisis de datos y documentación  | Análisis de datos, definición de KPI y documentación del proyecto (README.md) |
-| Lisbeth Herrera | ETL | Creación de la base y los orígenes |
-| Ignacio Parada | ETL | Creación de los destinos, el flujo y la validación de la carga de datos |
+| Cristóbal Carvacho | Modelo dimensional, cubo OLAP  | Creación del Data Warehouse. Creación del cubo OLAP. |
+| Tania Contreras | Análisis de datos y documentación | Análisis de datos, definición de KPI y documentación del proyecto (README.md) |
+| Lisbeth Herrera | ETL, dashboard Power BI | Creación de la base y los orígenes. Diseño del dashboard Power BI. |
+| Ignacio Parada | ETL, cubo OLAP | Creación de los destinos, el flujo y la validación de la carga de datos. Creación del cubo OLAP. |
