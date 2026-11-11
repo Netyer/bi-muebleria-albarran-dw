@@ -348,7 +348,7 @@ FROM dbo.H_FACT_DETALLE_VENTA;
 | Indicador | Resultado esperado |
 | --- | ---: |
 | Registros de detalle de ventas | 365 |
-| Monto total de ventas | $41.402.446 |
+| Monto total de ventas | $414.022.446 |
 
 **Tablas de dimensiones**
 
